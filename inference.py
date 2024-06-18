@@ -1,18 +1,16 @@
 from utils import *
 
-CHECKPOINT_FILENAME = "model checkpoint 20.pth.tar"
-
+CHECKPOINT_FILENAME = "model checkpoint 80.pth.tar"
 
 
 overlap_threshold = 0.5  # Adjust this threshold as needed
 patch_size = (1024, 1024, 3)  # Adjust this to the desired patch size and channel count
 step = 512
 
-input_folder = os.path.join(ROOT_DIR, "test data")
-output_folder = os.path.join(ROOT_DIR, "test result")
+output_folder = os.path.join(ROOT_DIR, "test_results")
 os.makedirs(output_folder, exist_ok=True)
 
-places = [file for file in os.listdir(input_folder) if file.endswith(".tif")]
+places = [file for file in os.listdir(TESTDATA_DIR) if file.endswith(".tif")]
 
 
 
@@ -48,12 +46,12 @@ if __name__ == "__main__":
     transform = T.ToTensor()
 
     for filename in places:
-        input_path = os.path.join(input_folder, filename)
+        input_path = os.path.join(TESTDATA_DIR, filename)
         print("Working on", input_path)
         inside_folder = os.path.join(output_folder, f"{filename[:-4]}")
         if not os.path.exists(inside_folder):
             os.makedirs(inside_folder)
-        output_path = os.path.join(inside_folder, f"output_final_{filename[:-4]}"+".shp")
+        output_path = os.path.join(inside_folder, f"output_{filename[:-4]}"+".shp")
         print("Output path:", output_path)
         
         process_patches_with_overlap_adjustment(input_path, patch_size, step, overlap_threshold, output_path, model, transform, device)

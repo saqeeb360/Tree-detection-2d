@@ -1,6 +1,6 @@
 from utils import *
 
-TOTAL_EPOCH = 20
+TOTAL_EPOCH = 100
 Model_Filename = "model checkpoint"
 
 
@@ -178,4 +178,9 @@ def main():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Train the model.')
+    parser.add_argument('--epochs', type=int, default=100, help='Number of epochs to train for')
+    args = parser.parse_args()
+    TOTAL_EPOCH = args.epochs
+    print(f"The total number of epochs is {TOTAL_EPOCH}")
     main()

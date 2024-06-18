@@ -22,14 +22,18 @@ import torchvision
 from torchvision import transforms as T
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.models.detection.mask_rcnn import MaskRCNNPredictor
-
+import argparse
 
 # Required folder structure
 ROOT_DIR = os.path.abspath("")
-RAWDATA_DIR = os.path.join(ROOT_DIR, "raw data")
-DATASET_DIR = os.path.join(ROOT_DIR, "train data")
-MODEL_DIR = os.path.join(ROOT_DIR,"model", "logs")
-
+RAWDATA_DIR = os.path.join(ROOT_DIR, "raw_data")
+DATASET_DIR = os.path.join(ROOT_DIR, "train_data")
+MODEL_DIR = os.path.join(ROOT_DIR,"model_logs")
+TESTDATA_DIR = os.path.join(ROOT_DIR, "test_data")
+os.makedirs(RAWDATA_DIR, exist_ok=True)
+os.makedirs(DATASET_DIR, exist_ok=True)
+os.makedirs(MODEL_DIR, exist_ok=True)
+os.makedirs(TESTDATA_DIR, exist_ok=True)
 
 def get_tile_name_path(dst_dir:str, index:int, fileName:str):
     '''
