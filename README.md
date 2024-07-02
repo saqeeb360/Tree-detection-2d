@@ -1,5 +1,7 @@
 
 # Tree Detection in 2d images
+Link to the project: https://iitk-my.sharepoint.com/:f:/g/personal/saqeeb22_iitk_ac_in/EkUZLMnjW5lJl_ANKw0IBvsBKAcliczOJr_aZyBNlGUEKw?e=C8aQhe
+
 ### Steps:
 #### Creating Dataset and Training the model
 - Add folder in the raw data folder. Each folder should contain tif file and it's corresponding shapefile.
@@ -8,10 +10,23 @@
 - Run the "train.py" file.
 - It will create multiple models in the "model_logs" folder.
 
+
+##### Dataset used for training 
+| File Name        | link                                                                                                                     |
+|------------------|--------------------------------------------------------------------------------------------------------------------------|
+| extra 1.tif   | https://ausindia-my.sharepoint.com/:i:/g/personal/jvora_aereo_io/ES7fY5Az-e5KtnQ-WosudVUB7dI5B2ADRkmLDlqPo0UX5Q?e=ecb4f9 |
+| gevra.tif     | https://ausindia-my.sharepoint.com/:i:/g/personal/data_aus_co_in/EREaPDMdrbRFgX9zhLTpjCIBnKh16jrlnt8c13ToMa_Miw?e=mWz9SP |
+| jsw 1.tif     | https://ausindia-my.sharepoint.com/:i:/g/personal/jvora_aereo_io/EQaRAnN35PlKq8TJRUqVZpUBDr5wRgOYmwikQAqQ0GplkA?e=7PHM71 |
+| jsw 2.tif     | https://ausindia-my.sharepoint.com/:i:/g/personal/jvora_aereo_io/EQaRAnN35PlKq8TJRUqVZpUBDr5wRgOYmwikQAqQ0GplkA?e=7PHM71 |
+| JUSCO_KML.tif | https://ausindia-my.sharepoint.com/:i:/g/personal/data_aus_co_in/ERyUaxZp9ExJjmcBfu2AxnMBis-M0tM9_su1NA820OuJuw?e=cIUQ4a |
+
+
 #### Inference on the images
 - Add test files in the "test data" folder.
 - Run the "inference.py" file.
 - It will generate the shapefile of all the test data.
+- The link to the model is: https://iitk-my.sharepoint.com/:f:/g/personal/saqeeb22_iitk_ac_in/Ep48rXobNppLgnXLG8Y8shgBat7K9dLApOtbYiZQSQkTFg?e=FwKmfG
+- Also the code downloads the base model automatically(Internet is required). And the link to the base model is https://download.pytorch.org/models/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth 
 
 
 The folder structure is below:
@@ -89,4 +104,4 @@ Run the command to get the results.
 
 ```cmd
 docker run -it --rm --gpus all -v "%cd%/:/myapp/" treedetection:1 python3 inference.py
-```
+```s
