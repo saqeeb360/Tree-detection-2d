@@ -104,4 +104,25 @@ Run the command to get the results.
 
 ```cmd
 docker run -it --rm --gpus all -v "%cd%/:/myapp/" treedetection:1 python3 inference.py
-```s
+```
+
+### Steps to Retrain the Model
+1. Modify the retrain.py File:
+    - Open the retrain.py file in your preferred text editor.
+    - Update the following variables with the file name of your base model and the name you want to give to the new trained model:
+
+```python
+BASE_MODEL = "model checkpoint 80.pth.tar"
+TRAIN_MODEL = "model checkpoint retrain"
+```
+2. Run the Docker Command:
+    - Open your terminal or command prompt.
+    - Navigate to the directory where your retrain.py file is located.
+    - Execute the following command to start the retraining process:
+
+```cmd
+docker run -it --rm --gpus all -v "%cd%/:/myapp/" treedetection:1 python3 retrain.py --epochs 100
+```
+
+> Note: Make sure the `base model file (model checkpoint 80.pth.tar)` and all `necessary data` are present in the directory where you run the Docker command.
+> Note: Adjust the `--epochs` parameter in the Docker command if you want to train for a different number of epochs.
